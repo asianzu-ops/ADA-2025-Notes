@@ -1,0 +1,43 @@
+---
+title: "ADA Notes"
+output: html_document
+date: "`r Sys.Date()`"
+---
+
+```r
+```
+
+## R Markdown
+
+getwd()
+# setting the working directory
+setwd("C:/Users/Asianzu Blessing/Documents/Practice R")
+library(tidyverse)
+library(readr)
+df <- read.csv("C:/Users/Asianzu Blessing/Documents/Practice R")
+list.files(list.files("C:/Users/Asianzu Blessing/Documents/Practice R")
+)
+df <- read.csv("C:/Users/Asianzu Blessing/Documents/Practice R/data.csv")
+# Choosing or listing files that specifically have the .csv extension
+list.files("C:/Users/Asianzu Blessing/Documents/Practice R", pattern = "\\.csv$", full.names = TRUE)
+# reading the file of interest
+df <- read.csv("C:/Users/Asianzu Blessing/Documents/Practice R/Country-Data-2016.csv")
+colnames(df)
+#selecting specific column names
+df$country
+# number of variables
+ncol(df)
+nrow(df)
+# number of entries in one specific variable
+length(unique(df$country))
+median(df$area)
+median(df$area, na.rm = TRUE)
+# creating a new variable using existing variables
+df$density <-df$population / df$area
+df$density
+# order by a range of entries by a variable 
+least_dense <- df[order(df$density), ] [1:10, ]
+print(least_dense)
+least_dense <- df[order(df$density), ] [1:10, 4]
+most_dense <- df[order(-df$density), 2] [1:10, ]
+print(most_dense)
